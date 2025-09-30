@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MAC -> License</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/build/sha256.min.js"></script>
+</head>
+<body>
+  <h2>MAC → Lisans Kodu</h2>
+  <input id="mac" placeholder="AA:BB:CC:DD:EE:FF">
+  <button onclick="gen()">Üret</button>
+  <div id="result"></div>
+
+  <script>
+    function gen(){
+      const mac = document.getElementById('mac').value.trim();
+      if(!mac){ alert('MAC adresini girin'); return; }
+      const hex = sha256(mac);
+      const code = hex.slice(0,10);
+      document.getElementById('result').textContent = "Üretilen lisans kodu: " + code;
+    }
+  </script>
+</body>
+</html>
