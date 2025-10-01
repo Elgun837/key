@@ -7,18 +7,18 @@
   <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/build/sha256.min.js"></script>
 </head>
 <body>
-  <h2>MAC → Lisans Kodu</h2>
+  <h2>MAC → Lisenziya Kodu</h2>
   <input id="mac" placeholder="AA:BB:CC:DD:EE:FF">
-  <button onclick="gen()">Üret</button>
+  <button onclick="gen()">Hazırla</button><br><br><br>
   <div id="result"></div>
 
   <script>
     function gen(){
       const mac = document.getElementById('mac').value.trim();
-      if(!mac){ alert('MAC adresini girin'); return; }
+      if(!mac){ alert('MAC adresini yaz'); return; }
       const hex = sha256(mac);
       const code = hex.slice(0,10);
-      document.getElementById('result').textContent = "Üretilen lisans kodu: " + code;
+      document.getElementById('result').textContent = "Hazırlanmış lisenziya kodu: " + code;
     }
   </script>
 </body>
